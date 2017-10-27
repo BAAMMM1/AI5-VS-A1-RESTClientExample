@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AI5-VS-A1-ClientExample.iml" filepath="$PROJECT_DIR$/.idea/modules/AI5-VS-A1-ClientExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AI5-VS-A1-ClientExample_main.iml" filepath="$PROJECT_DIR$/.idea/modules/AI5-VS-A1-ClientExample_main.iml" group="AI5-VS-A1-ClientExample" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AI5-VS-A1-ClientExample_test.iml" filepath="$PROJECT_DIR$/.idea/modules/AI5-VS-A1-ClientExample_test.iml" group="AI5-VS-A1-ClientExample" />
+    </modules>
+  </component>
+</project>
