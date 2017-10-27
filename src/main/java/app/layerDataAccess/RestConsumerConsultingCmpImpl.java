@@ -1,20 +1,13 @@
-package app.layerGraphicPresentation;
+package app.layerDataAccess;
 
-import app.layerLogic.cmpConsulting.dto.AppointmentDTO;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import app.layerBusinessLogic.cmpConsulting.dto.AppointmentDTO;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.client.HttpStatusCodeException;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +16,7 @@ import java.util.List;
  * @author Christian G. on 27.10.2017
  */
 @Controller
-public class RestConsumerConsultingCmp {
+public class RestConsumerConsultingCmpImpl implements IRestConsumerConsultingCmp {
 
     private final String PATH_GET_APPOINTMENT_BY_ID = "http://localhost:8080/appoints/{id}";
     private final String PATH_GET_APPOINTMENTS = "http://localhost:8080/appoints/";
@@ -33,7 +26,7 @@ public class RestConsumerConsultingCmp {
 
     private Gson gson;
 
-    public RestConsumerConsultingCmp() {
+    public RestConsumerConsultingCmpImpl() {
         this.gson = new Gson();
     }
 

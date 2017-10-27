@@ -4,7 +4,7 @@
  * by Christian Graumann
  */
 
-package app.layerLogic.cmpConsulting.datatype;
+package app.layerBusinessLogic.cmpConsulting.datatype;
 
 import java.io.Serializable;
 

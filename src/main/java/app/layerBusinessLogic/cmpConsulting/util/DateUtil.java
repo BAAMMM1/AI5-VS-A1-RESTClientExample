@@ -4,7 +4,7 @@
  * by Christian Graumann
  */
 
-package app.layerLogic.cmpConsulting.util;
+package app.layerBusinessLogic.cmpConsulting.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,7 +1,7 @@
 package app;
 
-import app.layerLogic.cmpConsulting.entity.Appointment;
-import app.layerLogic.cmpConsulting.service.IClientConsultingService;
+import app.layerBusinessLogic.cmpConsulting.entity.Appointment;
+import app.layerBusinessLogic.cmpConsulting.service.IClientConsultingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

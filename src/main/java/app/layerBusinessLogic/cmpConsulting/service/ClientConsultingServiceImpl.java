@@ -1,8 +1,9 @@
-package app.layerLogic.cmpConsulting.service;
+package app.layerBusinessLogic.cmpConsulting.service;
 
-import app.layerGraphicPresentation.RestConsumerConsultingCmp;
-import app.layerLogic.cmpConsulting.dto.AppointmentDTO;
-import app.layerLogic.cmpConsulting.entity.Appointment;
+import app.layerDataAccess.IRestConsumerConsultingCmp;
+import app.layerDataAccess.RestConsumerConsultingCmpImpl;
+import app.layerBusinessLogic.cmpConsulting.dto.AppointmentDTO;
+import app.layerBusinessLogic.cmpConsulting.entity.Appointment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,13 +19,13 @@ import java.util.List;
 public class ClientConsultingServiceImpl implements IClientConsultingService {
 
     @Autowired
-    private RestConsumerConsultingCmp restConsumerConsultingCmp;
+    private IRestConsumerConsultingCmp restConsumerConsultingCmpImpl;
 
 
     @Override
     public Appointment getAppointment(int id) {
 
-        AppointmentDTO dto = restConsumerConsultingCmp.getAppointment(id);
+        AppointmentDTO dto = restConsumerConsultingCmpImpl.getAppointment(id);
 
         if(dto != null){
             return Appointment.fromDTO(dto);
@@ -36,7 +37,7 @@ public class ClientConsultingServiceImpl implements IClientConsultingService {
 
     @Override
     public List<Appointment> getAppointments() {
-        List<AppointmentDTO> appointmentDTOS = this.restConsumerConsultingCmp.getAppointments();
+        List<AppointmentDTO> appointmentDTOS = this.restConsumerConsultingCmpImpl.getAppointments();
 
         if(appointmentDTOS != null){
 

@@ -1,7 +1,7 @@
-package app.layerLogic.cmpConsulting.entity;
+package app.layerBusinessLogic.cmpConsulting.entity;
 
-import app.layerLogic.cmpConsulting.dto.AppointmentDTO;
-import app.layerLogic.cmpConsulting.util.DateUtil;
+import app.layerBusinessLogic.cmpConsulting.dto.AppointmentDTO;
+import app.layerBusinessLogic.cmpConsulting.util.DateUtil;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Date;

@@ -1,4 +1,4 @@
-package app.layerLogic.cmpConsulting.dto;
+package app.layerBusinessLogic.cmpConsulting.dto;
 
 /** DTO
  *  - Vergeben die Struktur von Objekten

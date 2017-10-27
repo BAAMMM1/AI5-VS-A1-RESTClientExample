@@ -1,4 +1,4 @@
-package app.layerGraphicPresentation;
+package app.layerDataAccess.configure;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;

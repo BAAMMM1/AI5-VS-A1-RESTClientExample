@@ -1,7 +1,6 @@
-package app.layerLogic.cmpConsulting.service;
+package app.layerBusinessLogic.cmpConsulting.service;
 
-import app.layerLogic.cmpConsulting.dto.AppointmentDTO;
-import app.layerLogic.cmpConsulting.entity.Appointment;
+import app.layerBusinessLogic.cmpConsulting.entity.Appointment;
 
 import java.util.List;
 

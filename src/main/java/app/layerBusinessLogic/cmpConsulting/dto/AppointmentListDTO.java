@@ -1,4 +1,4 @@
-package app.layerLogic.cmpConsulting.dto;
+package app.layerBusinessLogic.cmpConsulting.dto;
 
 import java.util.List;
 
