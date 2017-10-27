@@ -39,42 +39,6 @@ public class RestConsumerConsultingCmp {
         this.gson = new Gson();
     }
 
-    /*
-    public AppointmentDTO getAppointment(int id) {
-        ResponseEntity<String> response = null;
-        AppointmentDTO participantJson = null;
-
-        try {
-            response = restOperation.getForEntity(PATH_GET_APPOINTMENT_BY_ID, String.class, id);
-
-            HttpStatus status = response.getStatusCode();
-            String restCall = response.getBody();
-
-            System.out.println(response.getStatusCode());
-            System.out.println(response.getStatusCodeValue());
-            System.out.println(response.getBody());
-            System.out.println(response.getHeaders());
-
-            Gson gson = new Gson();
-            participantJson = gson.fromJson(restCall, AppointmentDTO.class);
-
-
-        } catch (HttpStatusCodeException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getStatusCode());
-
-        } catch (RestClientException e) {
-            System.out.println(e.getMessage());
-
-        }
-
-
-        return participantJson;
-
-        //return this.restOperation.getForObject(PATH_GET_APPOINTMENT_BY_ID, AppointmentDTO.class, id);
-
-    }
-    */
 
     public AppointmentDTO getAppointment(int id) {
 
@@ -90,8 +54,6 @@ public class RestConsumerConsultingCmp {
             return null;
 
         }
-
-        //return this.restOperation.getForObject(PATH_GET_APPOINTMENT_BY_ID, AppointmentDTO.class, id);
 
     }
 

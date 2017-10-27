@@ -6,6 +6,7 @@ import app.layerLogic.cmpConsulting.entity.Appointment;
 import java.util.List;
 
 /**
+ * Alle Methoden die wir von dem Rest-Service nutzen wollen
  * @author Christian G.
  * @created 27.10.2017
  */
