@@ -38,7 +38,14 @@ public class Application implements CommandLineRunner{
         }
 
         List<Appointment> appointments = this.clientConsultingService.getAppointments();
-        LOGGER.info("Respone:{}", appointments.toString());
+
+        if(appointments != null) {
+            LOGGER.info("Respone:{}", appointments.toString());
+        }
+
+
+
+
 
     }
 }

@@ -28,14 +28,12 @@ public class RestConsumerConsultingCmp {
     private final String PATH_GET_APPOINTMENT_BY_ID = "http://localhost:8080/appoints/{id}";
     private final String PATH_GET_APPOINTMENTS = "http://localhost:8080/appoints/";
 
+    @Autowired
     private RestTemplate restOperation;
 
     private Gson gson;
 
-    @Autowired
-    public RestConsumerConsultingCmp(RestTemplate restOperation) {
-        this.restOperation = restOperation;
-        this.restOperation.setErrorHandler(new MyErrorHandler());
+    public RestConsumerConsultingCmp() {
         this.gson = new Gson();
     }
 

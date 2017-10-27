@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Setzt die Usecases (Anwendungsfälle) des Consulting Client um.
+ * Alle Methoden die wir von dem Rest-Service nutzen wollen
  *
  * @author Christian G. on 27.10.2017
  */
@@ -38,12 +38,21 @@ public class ClientConsultingServiceImpl implements IClientConsultingService {
     public List<Appointment> getAppointments() {
         List<AppointmentDTO> appointmentDTOS = this.restConsumerConsultingCmp.getAppointments();
 
-        List<Appointment> appointments = new ArrayList<Appointment>();
+        if(appointmentDTOS != null){
 
-        for (AppointmentDTO dto: appointmentDTOS) {
-            appointments.add(Appointment.fromDTO(dto));
+            List<Appointment> appointments = new ArrayList<Appointment>();
+
+            for (AppointmentDTO dto: appointmentDTOS) {
+                appointments.add(Appointment.fromDTO(dto));
+            }
+
+            return appointments;
+
+        } else {
+
+            return null;
         }
 
-        return appointments;
+
     }
 }
