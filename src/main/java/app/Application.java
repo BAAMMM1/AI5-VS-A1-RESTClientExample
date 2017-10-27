@@ -32,7 +32,10 @@ public class Application implements CommandLineRunner{
     @Override
     public void run(String... args) throws Exception {
         Appointment appointment = this.clientConsultingService.getAppointment(1);
-        LOGGER.info("Respone:{}", appointment.toString());
+
+        if(appointment != null) {
+            LOGGER.info("Respone:{}", appointment.toString());
+        }
 
         List<Appointment> appointments = this.clientConsultingService.getAppointments();
         LOGGER.info("Respone:{}", appointments.toString());

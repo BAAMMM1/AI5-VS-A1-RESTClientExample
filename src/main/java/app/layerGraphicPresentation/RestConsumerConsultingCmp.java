@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestOperations;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,9 +28,18 @@ public class RestConsumerConsultingCmp {
     private final String PATH_GET_APPOINTMENT_BY_ID = "http://localhost:8080/appoints/{id}";
     private final String PATH_GET_APPOINTMENTS = "http://localhost:8080/appoints/";
 
-    @Autowired
-    private RestOperations restOperation;
+    private RestTemplate restOperation;
 
+    private Gson gson;
+
+    @Autowired
+    public RestConsumerConsultingCmp(RestTemplate restOperation) {
+        this.restOperation = restOperation;
+        this.restOperation.setErrorHandler(new MyErrorHandler());
+        this.gson = new Gson();
+    }
+
+    /*
     public AppointmentDTO getAppointment(int id) {
         ResponseEntity<String> response = null;
         AppointmentDTO participantJson = null;
@@ -48,10 +59,14 @@ public class RestConsumerConsultingCmp {
             participantJson = gson.fromJson(restCall, AppointmentDTO.class);
 
 
-        } catch (RestClientException e){
+        } catch (HttpStatusCodeException e) {
             System.out.println(e.getMessage());
-        }
+            System.out.println(e.getStatusCode());
 
+        } catch (RestClientException e) {
+            System.out.println(e.getMessage());
+
+        }
 
 
         return participantJson;
@@ -59,20 +74,32 @@ public class RestConsumerConsultingCmp {
         //return this.restOperation.getForObject(PATH_GET_APPOINTMENT_BY_ID, AppointmentDTO.class, id);
 
     }
+    */
+
+    public AppointmentDTO getAppointment(int id) {
+
+        ResponseEntity<String> response = restOperation.getForEntity(PATH_GET_APPOINTMENT_BY_ID, String.class, id);
+
+        if (response.getStatusCode() == HttpStatus.OK) {
+
+            System.out.println(response.getStatusCode() + "\n" + response.getBody() + "\n" + response.getHeaders());
+
+            return this.gson.fromJson(response.getBody(), AppointmentDTO.class);
+
+        } else {
+            return null;
+
+        }
+
+        //return this.restOperation.getForObject(PATH_GET_APPOINTMENT_BY_ID, AppointmentDTO.class, id);
+
+    }
 
 
     public List<AppointmentDTO> getAppointments() {
-        ObjectMapper mapper = new ObjectMapper();
+
         String jsonString = this.restOperation.getForObject(PATH_GET_APPOINTMENTS, String.class);
 
-        List<AppointmentDTO> participantJsonList = null;
-
-        Gson gson = new Gson();
-        participantJsonList = gson.fromJson(jsonString, new TypeToken<List<AppointmentDTO>>(){}.getType());
-
-        participantJsonList = new ArrayList<AppointmentDTO>(Arrays.asList(gson.fromJson(jsonString, AppointmentDTO[].class)));
-
-        return participantJsonList;
-
+        return new ArrayList<>(Arrays.asList(this.gson.fromJson(jsonString, AppointmentDTO[].class)));
     }
 }

@@ -26,7 +26,12 @@ public class ClientConsultingServiceImpl implements IClientConsultingService {
 
         AppointmentDTO dto = restConsumerConsultingCmp.getAppointment(id);
 
-        return Appointment.fromDTO(dto);
+        if(dto != null){
+            return Appointment.fromDTO(dto);
+        } else {
+            return null;
+        }
+
     }
 
     @Override
