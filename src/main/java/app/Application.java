@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import java.util.List;
 
@@ -26,7 +27,12 @@ public class Application implements CommandLineRunner{
     private IClientConsultingService clientConsultingService;
 
     public static void main(String args[]){
-        SpringApplication.run(Application.class, args);
+        //SpringApplication.run(Application.class, args);
+        new SpringApplicationBuilder()
+                .sources(Application.class)
+                .profiles("client")
+                .web(false)
+                .run(args);
     }
 
     @Override
