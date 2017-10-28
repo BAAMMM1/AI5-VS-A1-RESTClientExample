@@ -3,6 +3,7 @@ package app.layerDataAccess;
 import app.layerBusinessLogic.cmpConsulting.dto.AppointmentDTO;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,9 @@ import java.util.List;
 @Controller
 public class RestConsumerConsultingCmpImpl implements IRestConsumerConsultingCmp {
 
-    private final String PATH_GET_APPOINTMENT_BY_ID = "http://localhost:8080/appoints/{id}";
+    @Value("${appoints.service.url}")
+    private String PATH_GET_APPOINTMENT_BY_ID;
+
     private final String PATH_GET_APPOINTMENTS = "http://localhost:8080/appoints/";
 
     @Autowired
